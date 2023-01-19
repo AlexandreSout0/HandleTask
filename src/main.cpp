@@ -1,5 +1,6 @@
 #include <Arduino.h>
 
+
 TaskHandle_t task1Handle = NULL;
 TaskHandle_t task2Handle = NULL;
 
@@ -20,7 +21,7 @@ void task2Function(void *pvParameters) {
 }
 
 void setup() {
-    Serial.begin(115200); // Inicializa a comunicação serial
+    Serial.begin(9600); // Inicializa a comunicação serial
     xTaskCreate(task1Function, "Task1", configMINIMAL_STACK_SIZE, NULL, 1, &task1Handle);
     xTaskCreate(task2Function, "Task2", configMINIMAL_STACK_SIZE, NULL, 1, &task2Handle);
 }
